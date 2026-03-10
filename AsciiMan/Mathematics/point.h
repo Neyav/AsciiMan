@@ -8,12 +8,15 @@ namespace AsciiMan
 		double _x;
 		double _y;
 	public:
-		double getX();
-		double getY();
+		double getX() const;
+		double getY() const;
 
 		void set(double x, double y);
 		void setX(double x);
 		void setY(double y);
+
+		point operator-(const point& other) const;
+		point operator+(const point& other) const;
 
 		point(double x, double y);
 		point();

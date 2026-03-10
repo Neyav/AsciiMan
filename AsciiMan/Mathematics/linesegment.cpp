@@ -13,9 +13,13 @@ namespace AsciiMan
 	{
 		_start = start;
 		_end = end;
-		double x = _end.getX() - _start.getX();
-		double y = _end.getY() - _start.getY();
-		_normal.set(-y, x);
+		
+		// Calculate the normal vector of the line segment assuming all lines are make start to
+		// end in a clockwise fashion.
+
+		point lineNormal = end - start;
+
+		_normal.set(-lineNormal.getY(), lineNormal.getX());
 		_normal.normalize();
 	}
 

@@ -3,12 +3,12 @@
 namespace AsciiMan
 {
 
-	double point::getX()
+	double point::getX() const
 	{
 		return _x;
 	}
 
-	double point::getY()
+	double point::getY() const
 	{
 		return _y;
 	}
@@ -27,6 +27,16 @@ namespace AsciiMan
 	void point::setY(double y)
 	{
 		_y = y;
+	}
+
+	point point::operator-(const point& other) const
+	{
+		return point(_x - other._x, _y - other._y);
+	}
+
+	point point::operator+(const point& other) const
+	{
+		return point(_x + other._x, _y + other._y);
 	}
 
 	point::point(double x, double y)

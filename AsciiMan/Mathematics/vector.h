@@ -9,6 +9,8 @@ namespace AsciiMan
 	private:
 		double _magnitude;
 		bool _isNormalized;
+
+		inline void calculateMagnitude();
 	public:
 
 		void set(double x, double y);
@@ -17,7 +19,11 @@ namespace AsciiMan
 
 		void normalize();
 
+		vector operator-(const vector& other);
+		vector operator+(const vector& other);
+
 		vector(double x, double y);
+		vector(point p);
 		vector();
 		~vector();
 	};

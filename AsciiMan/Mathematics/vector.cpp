@@ -5,6 +5,14 @@
 
 namespace AsciiMan
 {
+	inline void vector::calculateMagnitude()
+	{
+		double x = point::getX();
+		double y = point::getY();
+
+		_magnitude = sqrt(x * x + y * y);
+	}
+
 	void vector::set(double x, double y)
 	{
 		point::set(x, y);
@@ -41,9 +49,27 @@ namespace AsciiMan
 		_isNormalized = true;
 	}
 
+	vector vector::operator-(const vector& other)
+	{
+		vector subtract(point::getX() - other.getX(), point::getY() - other.getY());
+
+		return subtract;	
+	}
+
+	vector vector::operator+(const vector& other)
+	{
+		vector add(point::getX() + other.getX(), point::getY() + other.getY());
+		return add;
+	}
+
 	vector::vector(double x, double y)
 	{
 		set(x, y);
+	}
+
+	vector::vector(point p)
+	{
+		set(p.getX(), p.getY());
 	}
 
 	vector::vector()
