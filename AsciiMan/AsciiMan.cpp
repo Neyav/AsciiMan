@@ -2,6 +2,10 @@
 //
 
 #include "AsciiMan.h"
+#include "Mathematics/point.h"
+#include "Mathematics/vector.h"
+
+using namespace AsciiMan;
 
 int main()
 {
