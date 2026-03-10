@@ -4,11 +4,20 @@
 
 namespace AsciiMan
 {
-	class Vector : public point
+	class vector : public point
 	{
+	private:
+		double _magnitude;
+		bool _isNormalized;
 	public:
 
-		Vector();
-		~Vector();
+		void set(double x, double y);
+		void setX(double x);
+		void setY(double y);
+
+		void normalize();
+
+		vector();
+		~vector();
 	};
 }

@@ -5,28 +5,34 @@ namespace AsciiMan
 
 	double point::getX()
 	{
-		return x;
+		return _x;
 	}
 
 	double point::getY()
 	{
-		return y;
+		return _y;
 	}
 
-	void point::setX(double X)
+	void point::set(double x, double y)
 	{
-		x = X;
+		_x = x;
+		_y = y;
+	}
+	
+	void point::setX(double x)
+	{
+		_x = x;
 	}
 
-	void point::setY(double Y)
+	void point::setY(double y)
 	{
-		y = Y;
+		_y = y;
 	}
 
 	point::point()
 	{
-		x = 0;
-		y = 0;
+		_x = 0;
+		_y = 0;
 	}
 	point::~point()
 	{

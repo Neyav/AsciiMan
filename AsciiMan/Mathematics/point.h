@@ -5,14 +5,15 @@ namespace AsciiMan
 	class point
 	{
 	private:
-		double x;
-		double y;
+		double _x;
+		double _y;
 	public:
 		double getX();
 		double getY();
 
-		void setX(double X);
-		void setY(double Y);
+		void set(double x, double y);
+		void setX(double x);
+		void setY(double y);
 
 		point();
 		~point();
