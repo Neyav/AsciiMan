@@ -11,7 +11,17 @@ namespace AsciiMan
 	double point::getY()
 	{
 		return y;
-	}	
+	}
+
+	void point::setX(double X)
+	{
+		x = X;
+	}
+
+	void point::setY(double Y)
+	{
+		y = Y;
+	}
 
 	point::point()
 	{
