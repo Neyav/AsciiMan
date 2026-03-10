@@ -41,6 +41,11 @@ namespace AsciiMan
 		_isNormalized = true;
 	}
 
+	vector::vector(double x, double y)
+	{
+		set(x, y);
+	}
+
 	vector::vector()
 	{
 		_magnitude = 0;

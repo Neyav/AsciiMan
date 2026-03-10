@@ -17,6 +17,7 @@ namespace AsciiMan
 
 		void normalize();
 
+		vector(double x, double y);
 		vector();
 		~vector();
 	};

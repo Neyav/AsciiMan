@@ -29,6 +29,12 @@ namespace AsciiMan
 		_y = y;
 	}
 
+	point::point(double x, double y)
+	{
+		_x = x;
+		_y = y;
+	}
+
 	point::point()
 	{
 		_x = 0;
