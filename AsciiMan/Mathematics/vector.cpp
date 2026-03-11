@@ -6,59 +6,71 @@
 namespace AsciiMan
 {
 	inline void vector::calculateMagnitude()
-	{
-		double x = point::getX();
-		double y = point::getY();
-
-		_magnitude = sqrt(x * x + y * y);
+	{		
+		_magnitude = sqrt(_x * _x + _y * _y);
 	}
 
 	void vector::set(double x, double y)
 	{
-		point::set(x, y);
-		_magnitude = sqrt(x * x + y * y);
+		_x = x;
+		_y = y;
+		calculateMagnitude();
 		_isNormalized = false;
 	}
 
 	void vector::setX(double x)
 	{
-		point::setX(x);
-		_magnitude = sqrt(x * x + point::getY() * point::getY());
+		_x = x;
+		calculateMagnitude();
 		_isNormalized = false;
 	}
 
 	void vector::setY(double y)
 	{
-		point::setY(y);
-		_magnitude = sqrt(point::getX() * point::getX() + y * y);
+		_y = y;
+		calculateMagnitude();
 		_isNormalized = false;
+	}
+
+	double vector::getX() const
+	{
+		return _x;
+	}
+
+	double vector::getY() const
+	{
+		return _y;
+	}
+
+	double vector::getMagnitude() const
+	{
+		return _magnitude;
 	}
 
 	void vector::normalize()
 	{
 		if (_isNormalized)
 			return;
+
 		if (_magnitude == 0)
 			return;
 
-		double x = point::getX();
-		double y = point::getY();
+		_x = _x / _magnitude;
+		_y = _y / _magnitude;
 
-		point::set(x / _magnitude, y / _magnitude);
 		_magnitude = 1;
 		_isNormalized = true;
 	}
 
 	vector vector::operator-(const vector& other)
 	{
-		vector subtract(point::getX() - other.getX(), point::getY() - other.getY());
-
-		return subtract;	
+		vector subtract(_x - other.getX(), _y - other.getY());
+		return subtract;
 	}
 
 	vector vector::operator+(const vector& other)
 	{
-		vector add(point::getX() + other.getX(), point::getY() + other.getY());
+		vector add(_x + other.getX(), _y + other.getY());
 		return add;
 	}
 
@@ -69,15 +81,14 @@ namespace AsciiMan
 
 	vector::vector(point p)
 	{
-		set(p.getX(), p.getY());
+		set(p.x, p.y);
 	}
 
 	vector::vector()
 	{
+		_x = 0;
+		_y = 0;
 		_magnitude = 0;
 		_isNormalized = false;
-	}
-	vector::~vector()
-	{
 	}
 }

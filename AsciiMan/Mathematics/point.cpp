@@ -2,56 +2,26 @@
 
 namespace AsciiMan
 {
-
-	double point::getX() const
-	{
-		return _x;
-	}
-
-	double point::getY() const
-	{
-		return _y;
-	}
-
-	void point::set(double x, double y)
-	{
-		_x = x;
-		_y = y;
-	}
-	
-	void point::setX(double x)
-	{
-		_x = x;
-	}
-
-	void point::setY(double y)
-	{
-		_y = y;
-	}
-
 	point point::operator-(const point& other) const
 	{
-		return point(_x - other._x, _y - other._y);
+		return point(x - other.x, y - other.y);
 	}
 
 	point point::operator+(const point& other) const
 	{
-		return point(_x + other._x, _y + other._y);
+		return point(x + other.x, y + other.y);
 	}
 
-	point::point(double x, double y)
+	point::point(double X, double Y)
 	{
-		_x = x;
-		_y = y;
+		this->x = X;
+		this->y = Y;
 	}
 
 	point::point()
 	{
-		_x = 0;
-		_y = 0;
+		x = 0;
+		y = 0;
 	}
-	point::~point()
-	{
 
-	}
 }

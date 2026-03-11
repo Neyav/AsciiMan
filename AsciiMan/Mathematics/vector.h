@@ -4,9 +4,13 @@
 
 namespace AsciiMan
 {
-	class vector : public point
+	class vector
 	{
 	private:
+
+		double _x;
+		double _y;
+
 		double _magnitude;
 		bool _isNormalized;
 
@@ -17,6 +21,10 @@ namespace AsciiMan
 		void setX(double x);
 		void setY(double y);
 
+		double getX() const;
+		double getY() const;
+		double getMagnitude() const;
+
 		void normalize();
 
 		vector operator-(const vector& other);
@@ -25,6 +33,5 @@ namespace AsciiMan
 		vector(double x, double y);
 		vector(point p);
 		vector();
-		~vector();
 	};
 }

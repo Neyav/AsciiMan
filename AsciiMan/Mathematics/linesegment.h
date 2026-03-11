@@ -13,7 +13,9 @@ namespace AsciiMan
 		vector _normal;
 
 	public:
-		vector getNormal();
+		vector getNormal() const;
+		point getStart() const;
+		point getEnd() const;
 
 		linesegment(point start, point end);
 		~linesegment();
