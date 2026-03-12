@@ -1,10 +1,23 @@
 #include "point.h"
 #include "vector.h"
 #include "linesegment.h"
-#include <iostream>
+#include <stdexcept>
 
 namespace AsciiMan
 {
+	bool linesegment::isPointOnSegment(point p) const
+	{
+		// Check if the point is within the bounding box of the line segment
+		if (p.x < std::min(_start.x, _end.x) || p.x > std::max(_start.x, _end.x) ||
+			p.y < std::min(_start.y, _end.y) || p.y > std::max(_start.y, _end.y))
+		{
+			return false;
+		}
+		// Check if the point is collinear with the line segment
+		double crossProduct = (_end.y - _start.y) * (p.x - _start.x) - (_end.x - _start.x) * (p.y - _start.y);
+		return std::abs(crossProduct) < 1e-10; // Allow for floating-point precision issues
+	}
+
 	vector linesegment::getNormal() const
 	{
 		return _normal;

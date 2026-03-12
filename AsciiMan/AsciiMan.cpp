@@ -11,7 +11,7 @@ using namespace AsciiMan;
 int main()
 {
 	vector v;
-	linesegment testline(point(15, 5), point(11, 7));
+	linesegment testline(point(3, 4), point(11, -4));
 	v = testline.getNormal();
 
 	std::cout << "Line Normal: " << v.getX() << ", " << v.getY() << std::endl;

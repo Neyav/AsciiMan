@@ -12,6 +12,8 @@ namespace AsciiMan
 		point _end;
 		vector _normal;
 
+		bool isPointOnSegment(point p) const;
+
 	public:
 		vector getNormal() const;
 		point getStart() const;
